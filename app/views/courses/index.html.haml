@@ -18,6 +18,8 @@
       %th Description
       %th User
       %th Date created
+      %th Level
+      %th Price
       %th
       %th
       %th
@@ -29,6 +31,8 @@
         %td= course.description
         %td= course.user
         %td= course.created_at.strftime('%d-%b-%Y')
+        %td= course.level
+        %td= number_to_currency(course.price)
         %td= link_to 'Show', course, class: 'btn btn-sm btn-primary'
         %td= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
         %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'
