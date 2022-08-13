@@ -1,6 +1,15 @@
+= link_to 'New Course', new_course_path, class: 'btn btn-primary'
+<br>
+<br>
+
+
 %h1 
   Courses
   = @courses.count
+  
+// .card-columns
+//   - @courses.each do |course|
+//     = render 'courses/course', course: course
 
 %table.table
   %thead
@@ -8,6 +17,7 @@
       %th Title
       %th Description
       %th User
+      %th Date created
       %th
       %th
       %th
@@ -15,13 +25,12 @@
   %tbody
     - @courses.each do |course|
       %tr
-        %td= course.title
+        %td= link_to course.title, course_path(course) 
         %td= course.description
         %td= course.user
-        %td= link_to 'Show', course
-        %td= link_to 'Edit', edit_course_path(course)
-        %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= course.created_at.strftime('%d-%b-%Y')
+        %td= link_to 'Show', course, class: 'btn btn-sm btn-primary'
+        %td= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
+        %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'
 
 %br
-
-= link_to 'New Course', new_course_path

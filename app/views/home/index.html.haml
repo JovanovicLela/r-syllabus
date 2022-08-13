@@ -1,3 +1,58 @@
+.jumbotron
 .container-fluid
-  = link_to courses_path, class: "btn btn-success" do 
-    %i.fa.fa-book Course
+  %h1.display-6 Learn more
+  %p.lead This is a simple syllabus unit, a platform for calling extra attention to learning or information.
+  %hr.my-4/
+  
+<br>
+.container-fluid
+  = link_to courses_path, class: "btn btn-lg btn-success" do 
+    %i.fa.fa-book 
+    Courses
+<br>
+
+.card-group
+  .card.card-body
+    %h1
+      .fa.fa-graduation-cap
+    = Course.count
+    online courses
+    .row
+    Explore a variety of fresh topics
+  .card.card-body
+    %h1
+      .fa.fa-chalkboard-teacher
+      /.fa.fa-brain
+    = Course.distinct.count(:user_id)
+    expert lecturer
+    .row
+    Find the right lecturer for you
+  .card.card-body
+    %h1
+      .fa.fa-user-graduate
+    = User.count
+    active learners
+    .row
+    Join the knowledge sharing community
+  .card.card-body
+    %h1
+      .fa.fa-infinity
+    Lifetime access
+    .row
+    Learn on your schedule
+
+// %hr
+// .container-fluid
+//   %h5
+//     Popular courses
+// %hr
+// .container-fluid
+//   %h5
+//     Top rated courses
+// %hr
+// .container-fluid
+//   %h5
+//     Most recent courses
+// %hr
+
+

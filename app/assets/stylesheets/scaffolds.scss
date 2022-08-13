@@ -17,11 +17,11 @@ a {
   color: #000; }
 
 a:visited {
-  color: #666; }
+  color: #000; }
 
 a:hover {
   color: #fff;
-  background-color: #000; }
+  background-color: #fff; }
 
 th {
   padding-bottom: 5px; }
@@ -63,3 +63,5 @@ div.actions {
 
 label {
   display: block; }
+  
+.session_button:visited { color:#FFF; }

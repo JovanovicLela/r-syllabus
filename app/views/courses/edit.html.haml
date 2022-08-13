@@ -1,7 +1,8 @@
 %h1 Editing course
 
 = render 'form'
+<br>
 
-= link_to 'Show', @course
-\|
-= link_to 'Back', courses_path
+= link_to 'Show', @course, class: 'btn btn-primary'
+
+= link_to 'Back', courses_path, class: 'btn btn-secondary'
