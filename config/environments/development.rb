@@ -3,6 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   
   config.hosts << "581a861ad3b0496f82e963a2383ad5f3.vfs.cloud9.us-east-1.amazonaws.com"
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
   config.web_console.permissions = '87.116.167.146/16'
 

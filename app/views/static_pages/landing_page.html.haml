@@ -28,9 +28,10 @@
       %form.d-flex{:role => "search"}
         %input.form-control.me-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
         %button.btn.btn-outline-success{:type => "submit"} Search
+     
 .container-fluid
   %h1 Hello world
-  = link_to "Privacy Policy", privacy_policy_path, class: "btn btn-lg btn-warning"
-  = link_to privacy_policy_path, class: "btn btn-lg btn-warning" do
-    %i.fa-regular.fa-file
-    Privacy Policy
+  = link_to privacy_policy_path, class: "btn btn-warning" do
+    %i.fa-regular.fa-file Privacy Policy
+  = link_to courses_path, class: "btn btn-success" do 
+    %i.fa.fa-book Course
