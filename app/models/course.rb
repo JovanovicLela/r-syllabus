@@ -16,6 +16,7 @@ class Course < ApplicationRecord
   has_rich_text :description
   
   include PublicActivity::Model
+  tracked
   
 
 
