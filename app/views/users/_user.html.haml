@@ -22,4 +22,6 @@
     .row
     = 'last_sign_in_ip'.humanize
     = user.last_sign_in_ip
-
+  .card-footer
+    - user.roles.each do |role|
+      = role.name
