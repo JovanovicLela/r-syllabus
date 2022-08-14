@@ -4,8 +4,8 @@
 
 
 %h1 
-  Courses
-  = @courses.count
+  All courses
+<br>
   
 // .card-columns
 //   - @courses.each do |course|
@@ -27,6 +27,7 @@
 
   %tbody
     - @courses.each do |course|
+   
       %tr
         %td= link_to course.title, course_path(course) 
         %td= course.description
@@ -40,3 +41,5 @@
         %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' if policy(course).destroy?
 
 %br
+// != pagy_nav(@pagy)
+!= pagy_bootstrap_nav(@pagy)

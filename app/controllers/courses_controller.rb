@@ -17,7 +17,12 @@ class CoursesController < ApplicationController
       else
         @courses = Course.all
     end
+    @pagy, @courses = pagy(Course.all)
   end
+  
+  
+
+  
 
   # GET /courses/1 or /courses/1.json
   def show
