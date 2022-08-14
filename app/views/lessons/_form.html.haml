@@ -6,8 +6,10 @@
   .form-inputs
     = f.input :title
     = f.input :content
-    = f.association :course
-    
+    // input course_id and the value is going to be either the course_is that is already assigned
+    // to the lesson or the course_id that is in params
+    = f.input :course_id, input_html: {value: @lesson.course_id || params[:course_id]}, as: :hidden
+
   <br>
   .form-actions
     = f.button :submit, class: 'btn btn-success'

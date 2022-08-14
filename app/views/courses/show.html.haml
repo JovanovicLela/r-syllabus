@@ -10,10 +10,12 @@
   = link_to 'Back', courses_path, class:'btn btn-secondary'
   %hr.my-4/
 
+= link_to 'Add lesson for this course', new_lesson_path(course_id: @course.id), class: 'btn btn-success'
 <br>
-
+<br>
 .row
   .col-lg-6
+    <br>
     - @lessons.each do |lesson|
       = render 'lessons/lesson', lesson: lesson
       <br>
