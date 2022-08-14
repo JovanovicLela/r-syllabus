@@ -16,6 +16,6 @@
   %b Price:
   = @enrollment.price
 
-= link_to 'Edit', edit_enrollment_path(@enrollment)
-\|
-= link_to 'Back', enrollments_path
+<br>
+= link_to 'Edit', edit_enrollment_path(@enrollment), class: 'btn btn-warning'
+= link_to 'Back', enrollments_path, class: 'btn btn-secondary'

@@ -1,5 +1,9 @@
-%h1 New enrollment
-
+%h1
+  .text-center
+    New enrollment
+<br>
 = render 'form'
+%br
+= link_to 'Back', enrollments_path, class: 'btn btn-secondary'
+%br
 
-= link_to 'Back', enrollments_path

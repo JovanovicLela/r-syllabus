@@ -1,7 +1,10 @@
-%h1 Editing enrollment
-
+%h1
+  .text-center
+    Edit enrollment
+<br>
 = render 'form'
 
-= link_to 'Show', @enrollment
-\|
-= link_to 'Back', enrollments_path
+
+<br>
+= link_to 'Show', @enrollment, class: 'btn btn-primary'
+= link_to 'Back', enrollments_path, class: 'btn btn-secondary'

@@ -8,8 +8,8 @@
   %p.lead=@lesson.content
   <br>
   .container-fluid
-  = link_to 'Edit', edit_lesson_path(@lesson), class: 'btn btn-sm btn-warning'
-  = link_to 'Back to course', course_path(@lesson.course), class: 'btn btn-sm btn-secondary'
+  = link_to 'Edit', edit_lesson_path(@lesson), class: 'btn btn-warning'
+  = link_to 'Back to course', course_path(@lesson.course), class: 'btn btn-secondary'
   %hr.my-4/
 
 <br>

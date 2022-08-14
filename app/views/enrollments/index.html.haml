@@ -1,7 +1,9 @@
-%h1 Listing enrollments
-
-%table
-  %thead
+%h1
+  .text-center
+    Listing enrollments
+<br>
+%table.table
+  %thead.thead.t-custom
     %tr
       %th Course
       %th User
@@ -19,11 +21,11 @@
         %td= enrollment.user
         %td= enrollment.rating
         %td= enrollment.review
-        %td= enrollment.price
-        %td= link_to 'Show', enrollment
-        %td= link_to 'Edit', edit_enrollment_path(enrollment)
-        %td= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= number_to_currency(enrollment.price)
+        %td= link_to 'Show', enrollment, class: 'btn btn-sm btn-primary'
+        %td= link_to 'Edit', edit_enrollment_path(enrollment), class: 'btn btn-sm btn-warning'
+        %td= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 
 %br
 
-= link_to 'New Enrollment', new_enrollment_path
+= link_to 'New Enrollment', new_enrollment_path, class: 'btn btn-success'

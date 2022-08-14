@@ -10,6 +10,10 @@ class Enrollment < ApplicationRecord
   
   validate :cant_subscribe_to_own_course  #user can't create a subscription if course.user == current_user.id
 
+
+  def to_s
+    user.to_s + " " + course.to_s
+  end
   
   protected
   def cant_subscribe_to_own_course
