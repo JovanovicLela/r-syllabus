@@ -25,6 +25,10 @@
           = link_to lessons_path, class: 'nav-link' do
             .fa.fa-graduation-cap
             Lessons
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(enrollments_path)}"}
+          = link_to enrollments_path, class: 'nav-link' do
+            .fa.fa-building-columns
+            Enrollments
       .form-inline.my-2.my-lg-0
         = form_tag(courses_path, method: :get) do
           .input-group
