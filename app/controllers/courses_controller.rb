@@ -3,10 +3,19 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
+  # if current_user.has_role?(:admin)    
+  #     if params[:title]
+  #       @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") 
+  #     else
+  #       @courses = Course.all
+  #     end
+  # else
+  #   redirect_to root_path, alert: 'You do not have access.'
+  # end
     if params[:title]
-      @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") 
-    else
-      @courses = Course.all
+        @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") 
+      else
+        @courses = Course.all
     end
   end
 
@@ -17,16 +26,19 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    authorize @course
   end
 
   # GET /courses/1/edit
   def edit
+    authorize @course
   end
 
   # POST /courses or /courses.json
   def create
     @course = Course.new(course_params)
     @course.user = current_user
+    authorize @course
 
     respond_to do |format|
       if @course.save
@@ -41,6 +53,7 @@ class CoursesController < ApplicationController
 
   # PATCH/PUT /courses/1 or /courses/1.json
   def update
+    authorize @course
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to course_url(@course), notice: "Course was successfully updated." }
@@ -55,6 +68,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1 or /courses/1.json
   def destroy
     @course.destroy
+    authorize @course
 
     respond_to do |format|
       format.html { redirect_to courses_url, notice: "Course was successfully destroyed." }
