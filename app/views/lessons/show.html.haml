@@ -1,0 +1,16 @@
+// %p#notice= notice
+//= render 'lessons/lesson', lesson: @lesson
+
+<br>
+.jumbotron
+.container-fluid
+  %h1.display-8=@lesson.title
+  %p.lead=@lesson.content
+  <br>
+  .container-fluid
+  = link_to 'Edit', edit_lesson_path(@lesson), class: 'btn btn-sm btn-warning'
+  = link_to 'Back', lessons_path, class: 'btn btn-sm btn-secondary'
+  %hr.my-4/
+
+<br>
+

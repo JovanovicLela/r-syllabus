@@ -1,0 +1,25 @@
+%h1 All lessons
+<br>
+%table
+  %thead
+    %tr
+      %th Title
+      %th Content
+      %th Course
+      %th
+      %th
+      %th
+
+  %tbody
+    - @lessons.each do |lesson|
+      %tr
+        %td= lesson.title
+        %td= lesson.content
+        %td= lesson.course
+        %td= link_to 'Show', lesson, class: 'btn btn-sm btn-primary'
+        %td= link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning'
+        %td= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+
+%br
+
+= link_to 'New Lesson', new_lesson_path, class: 'btn btn-success'

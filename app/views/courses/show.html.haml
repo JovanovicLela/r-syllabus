@@ -1,14 +1,19 @@
 // %p#notice= notice
-
+<br>
 .jumbotron
 .container-fluid
   %h1.display-4=@course.title
   %p.lead=@course.description
+  <br>
+  .container-fluid
+  = link_to 'Edit', edit_course_path(@course), class:'btn btn-warning'
+  = link_to 'Back', courses_path, class:'btn btn-secondary'
   %hr.my-4/
 
-.container-fluid
-  = link_to 'Edit', edit_course_path(@course), class:'btn btn-warning'
 <br>
-.container-fluid
-  = link_to 'Back', courses_path, class:'btn btn-secondary'
 
+.row
+  .col-lg-6
+    - @lessons.each do |lesson|
+      = render 'lessons/lesson', lesson: lesson
+      <br>
