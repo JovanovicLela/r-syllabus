@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   resources :enrollments
-  resources :lessons
   devise_for :users
-  resources :courses
+  resources :lessons
+  resources :courses do
+    resources :lessons
+    resources :enrollments, only: [:new, :create]
+  end
   resources :users, only: [:index, :edit, :show, :update]
   get 'home/index'
   get 'home/activity'

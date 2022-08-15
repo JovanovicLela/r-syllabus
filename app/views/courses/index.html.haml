@@ -13,7 +13,7 @@
 //     = render 'courses/course', course: course
 
 %table.table-responsive
-  %thead.thead.t-custom
+  %thead.thead.t-custom.bordered
     %tr
       %th Title
       %th Description
@@ -22,6 +22,7 @@
       %th Level
       %th Price
       %th Lessons
+      %th Enrollment
       %th
       %th
       %th
@@ -37,6 +38,7 @@
         %td= course.level
         %td= number_to_currency(course.price)
         %td= course.lessons.count
+        %td= enrollment_button(course)
         %td= link_to 'Show', course, class: 'btn btn-sm btn-primary'
         %td= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' if policy(course).edit?
         %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger' if policy(course).destroy?

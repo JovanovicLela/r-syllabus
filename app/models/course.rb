@@ -18,7 +18,11 @@ class Course < ApplicationRecord
   
   include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.current_user }
-
-
+  
+  def bought(user)
+    # if the current user does not have enrollment for the current course id, then the user can buy this course
+    # connected with buy_course in user.rb
+    self.enrollments.where(user_id: [user.id], course_id: [self.id].empty?)
+  end
 
 end
