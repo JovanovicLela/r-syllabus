@@ -1,15 +1,32 @@
 %h1
   .text-center
-    Listing enrollments
+    Enrollments
 <br>
 %table.table
   %thead.thead.t-custom
     %tr
-      %th Course
-      %th User
-      %th Rating
-      %th Review
-      %th Price
+      %th ID
+      %th 
+        .fa.fa-clock
+        Date enrolled
+      %th 
+        .fa.fa-user
+        User
+      %th 
+        .fa.fa-graduation-cap
+        Course
+      %th
+        .fa.fa-dollar-sign
+        Price
+      %th
+        .text-warning.fa.fa-clock
+        Reviewed on
+      %th
+        .text-warning.fa.fa-star
+        Rating
+      %th
+        .text-warning.fa.fa-comment
+        Review
       %th
       %th
       %th
@@ -17,14 +34,21 @@
   %tbody
     - @enrollments.each do |enrollment|
       %tr
-        %td= enrollment.course
-        %td= enrollment.user
+        %td= enrollment.id
+        %td= enrollment.created_at.strftime("%d.%m.%Y. - %Hh:%M:%S")
+        %td= link_to enrollment.user, user_path(enrollment.user)
+        %td= link_to enrollment.course, course_path(enrollment.course)
+        %td= number_to_currency(enrollment.price)
+        %td
+          -if enrollment.rating.present?
+            = enrollment.updated_at.strftime("%d.%m.%Y. - %Hh:%M:%S")
         %td= enrollment.rating
         %td= enrollment.review
-        %td= number_to_currency(enrollment.price)
-        %td= link_to 'Show', enrollment, class: 'btn btn-sm btn-primary'
-        %td= link_to 'Edit', edit_enrollment_path(enrollment), class: 'btn btn-sm btn-warning'
-        %td= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+        %td= link_to 'See Review', enrollment, class: 'btn btn-sm btn-primary'
+        %td
+          -if policy(enrollment).edit?
+            = link_to 'Add Review', edit_enrollment_path(enrollment), class: 'btn btn-sm btn-warning'
+        %td= link_to 'Delete Enrollment', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 
 %br
 

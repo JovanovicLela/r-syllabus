@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :enrollments
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations"}
   resources :lessons
   resources :courses do
     resources :lessons
