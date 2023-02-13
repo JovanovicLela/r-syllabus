@@ -1,7 +1,7 @@
 - flash.each do |key, value|
   %div{:class => "card-body d-flex list-group-item-#{key.to_s == 'notice' ? 'success' : 'danger'}", :role => "message"}
     %a{"data-bs-dismiss" => "message", :href => "#"}
-      %i.fa.fa-times
+      %i.fa.fa-window-close
     = value
     
   <br>
